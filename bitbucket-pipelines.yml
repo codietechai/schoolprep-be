@@ -1,0 +1,18 @@
+image: node:20
+
+pipelines:
+  branches:  # Pipelines that run automatically on a commit to a branch can also be triggered manually
+    test:
+      - step:
+          runs-on:
+            - galileotrading 
+            - self.hosted
+            - linux
+          script:
+            - pwd
+            - pipe: atlassian/ssh-run:0.8.0
+              variables:
+                SSH_USER: $USER
+                SERVER: $SERVER
+                SSH_KEY: $MY_SSH_KEY
+                COMMAND: './galileofx-tradingsignals-backend.sh'

@@ -1,0 +1,29 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+max_line_length = 80
+tab_width = 4
+trim_trailing_whitespace = true
+
+[{*.bash,*.sh,*.zsh,kill_running_server}]
+indent_size = 2
+tab_width = 2
+
+[{*.har,*.jsb2,*.jsb3,*.json,.babelrc,.eslintrc,.prettierrc,.stylelintrc,bowerrc,jest.config}]
+indent_size = 2
+
+[{*.yaml,*.yml,.analysis_options}]
+indent_size = 2
+
+[{*.js, *.ts, *.jsx, *.tsx}]
+indent_size = 2
+
+# noinspection EditorConfigOptionRedundancy
+[*.prisma]
+indent_size = 2
+indent_style = space

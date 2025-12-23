@@ -1,0 +1,60 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "inlineSources": true,
+    "outDir": "./build",
+    "allowJs": true,
+    "target": "ES6",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": [
+      "es2019",
+      "dom"
+    ],
+    "baseUrl": "server",
+    "paths": {
+      "@constants": [
+        "./constants"
+      ],
+      "config/*": [
+        "./config/*"
+      ],
+      "contracts/*": [
+        "./contracts/*"
+      ],
+      "controllers/*": [
+        "./controllers/*"
+      ],
+      "database/*": [
+        "./database/*"
+      ],
+      "helpers/*": [
+        "./helpers/*"
+      ],
+      "interfaces/*": [
+        "./interfaces/*"
+      ],
+      "middlewares/*": [
+        "./middlewares/*"
+      ],
+      "models/*": [
+        "./models/*"
+      ],
+      "routes/*": [
+        "./routes/*"
+      ],
+      "services/*": [
+        "./services/*"
+      ]
+    }
+  },
+  "downlevelIteration": true,
+  "include": [
+    "./server/**/*",
+    "./app.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
