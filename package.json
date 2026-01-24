@@ -8,6 +8,7 @@
   "scripts": {
     "start": "ts-node -r tsconfig-paths/register ./app.ts",
     "repl": "ts-node -r tsconfig-paths/register",
+    "build": "tsc --skipLibCheck --noEmitOnError false",
     "test": "ts-mocha --paths -p ./tsconfig.json server/**/*.spec.ts",
     "coverage": "nyc npm run test",
     "dev": "ts-node-dev --watch -r tsconfig-paths/register ./app.ts",
