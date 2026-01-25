@@ -1,24 +1,19 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": ".",
+    "module": "NodeNext",
     "target": "ES2020",
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
       "admin/*": ["server/admin/*"],
-      "server/*": ["server/*"],
-      "config": ["server/config"],
-      "common/*": ["server/common/*"]
-    },
-    "outDir": "dist",
-    "rootDir": ".",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "strict": false,
-    "noImplicitAny": false,
-    "strictNullChecks": false,
-    "forceConsistentCasingInFileNames": false
+      "common/*": ["server/common/*"],
+      "config": ["server/config/index"],
+      "constants/*": ["server/constants/*"],
+      "helpers/*": ["server/helpers/*"]
+    }
   },
-  "include": ["**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
