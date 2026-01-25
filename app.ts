@@ -1,17 +1,21 @@
-import dotenv from "dotenv";
-import dotenvExpand from "dotenv-expand";
-// import server from "./server";
-import { CONFIG } from "./server/config";
-import  server from "./server/index";
+import express from "express";
+import ejs from "ejs";
+import cors from "cors";
+import sgMail from "@sendgrid/mail";
+import mongoose from "mongoose";
+import * as admin from "firebase-admin";
+import router from "server/routes";
 
-const env = dotenv.config({ path: `${__dirname}/.env` });
-dotenvExpand.expand(env);
+const server = express();
 
-const PORT: number = CONFIG.PORT || 3001;
+// health route
+server.get("/api/health", (req, res) => {
+  res.json({ status: "ok from vercel" });
+});
 
-try {
+// cors
+server.use(cors());
+server.use(express.json());
+server.use("/api", router);
 
-  server.listen(PORT, () => console.log(`Server is live at localhost:${PORT}`));
-} catch (error) {
-  console.log('Cannot connect to the server');
-}
+export default server;
