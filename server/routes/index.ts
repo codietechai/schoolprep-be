@@ -1,7 +1,7 @@
 import { Router } from "express";
-import adminRouter from "../admin/routes";
-import userRouter from "../user/routes";
-import webhookRouter from "../webhooks/routes";
+import adminRouter from "../admin/routes/index";
+import userRouter from "../user/routes/index";
+import webhookRouter from "../webhooks/routes/index";
 
 const router = Router();
 

@@ -7,9 +7,9 @@ import {
     createAccessToken,
     createRefreshToken,
     createPassword,
+    createUserResponse,
 } from "admin/helpers";
 import { RESPONSE_TYPE, ERROR_MESSAGE, SUCCESS_MESSAGE } from "admin/constants";
-import { createUserResponse } from "helpers/format-response";
 import { ImageCrud } from "admin/models";
 
 export default class AuthController {

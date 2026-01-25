@@ -14,7 +14,7 @@ import contactRouter from "./contact";
 import topicRouter from "./topic";
 import testRouter from "./test";
 import dashboardRouter from "./dashboard";
-import { auth } from "admin/middlewares";
+import { auth } from "admin/middlewares/index";
 
 const router = express.Router();
 

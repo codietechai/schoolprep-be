@@ -1,10 +1,7 @@
 import express from "express";
-import ejs from "ejs";
 import cors from "cors";
-import sgMail from "@sendgrid/mail";
-import mongoose from "mongoose";
-import * as admin from "firebase-admin";
-import router from "server/routes";
+import router from "./server/routes/index";
+
 
 const server = express();
 

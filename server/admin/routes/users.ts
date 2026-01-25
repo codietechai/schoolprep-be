@@ -4,7 +4,7 @@ import {
     validateListUserQuery,
     validateUserBody,
 } from "admin/controllers/users/user.validation";
-import { authorize } from "admin/middlewares";
+import { authorize } from "admin/middlewares/index";
 
 const router = express.Router();
 

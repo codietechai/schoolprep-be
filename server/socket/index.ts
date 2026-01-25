@@ -1,6 +1,6 @@
 import { Server } from "socket.io";
 import http from "http";
-import app from "../index.ts";
+import app from "../index";
 import TestService from "admin/controllers/Test/service";
 import { Test } from "server/database/schema/Test";
 import mongoose from "mongoose";
