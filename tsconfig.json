@@ -14,5 +14,6 @@
       "constants/*": ["server/constants/*"],
       "helpers/*": ["server/helpers/*"]
     }
-  }
+  },
+  "exclude": ["node_modules", "dist"]
 }
