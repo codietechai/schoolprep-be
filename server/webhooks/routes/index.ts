@@ -1,14 +1,14 @@
 import * as express from "express";
 import stripeRouter from "./stripe";
-import PaymentsController from "server/user/controllers/payments/controller";
+// import PaymentsController from "server/user/controllers/payments/controller";
 
 const router = express.Router();
 
-const {
-    listenStripeWebHook,
-} = PaymentsController;
+// const {
+//     listenStripeWebHook,
+// } = PaymentsController;
 
-router.use("/stripe", stripeRouter);
-router.post("/testprep-payment-webhook", listenStripeWebHook);
+// router.use("/stripe", stripeRouter);
+// router.post("/testprep-payment-webhook", listenStripeWebHook);
 
 export default router;
