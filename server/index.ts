@@ -3,72 +3,92 @@ import ejs from "ejs";
 import cors from "cors";
 import router from "./routes";
 import sgMail from "@sendgrid/mail";
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 import * as admin from "firebase-admin";
 import { fbServiceAccount } from "./firebase-config";
-const setupSwagger = require('../swagger');
+import setupSwagger from "../swagger";
 
+// Fix BigInt JSON issue
 declare global {
-    interface BigInt {
-        toJSON: () => string;
-    }
+  interface BigInt {
+    toJSON: () => string;
+  }
 }
+
 BigInt.prototype.toJSON = function () {
-    return this.toString();
+  return this.toString();
 };
 
-// Set sendgrid api key
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-// Database connection
-const dbURI = process.env.DATABASE_URI;
-mongoose.connect(dbURI, {
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true
-})
-    .then(() => {
-        require("./database/schema");
-        console.log('Successfully connected to MongoDB');
-    })
-    .catch(err => {
-        console.error('Error connecting to MongoDB', err);
-    });
-
-try {
-    admin.initializeApp({
-        credential: admin.credential.cert(
-            fbServiceAccount as admin.ServiceAccount
-        ),
-        storageBucket: "gs://test-storage-7acfd.appspot.com",
-    });
-    console.log("Firebase app has been initialized successfully");
-} catch (error) {
-    console.error("Failed to initialize Firebase app:", error);
-    throw new Error(error.message);
+// ✅ Set SendGrid API key safely
+if (process.env.SENDGRID_API_KEY) {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 }
 
+// ✅ MongoDB connection (cached for Vercel cold starts)
+const dbURI = process.env.DATABASE_URI;
+
+if (!dbURI) {
+  console.warn("⚠️ DATABASE_URI is not set");
+} else {
+  mongoose
+    .connect(dbURI)
+    .then(() => {
+      require("./database/schema");
+      console.log("✅ Connected to MongoDB");
+    })
+    .catch((err) => {
+      console.error("❌ MongoDB connection error:", err);
+    });
+}
+
+// ✅ Firebase Admin Init (prevent re-init in serverless)
+if (!admin.apps.length) {
+  try {
+    admin.initializeApp({
+      credential: admin.credential.cert(
+        fbServiceAccount as admin.ServiceAccount
+      ),
+      storageBucket: process.env.FB_STORAGE_BUCKET || "gs://test-storage-7acfd.appspot.com",
+    });
+    console.log("✅ Firebase initialized");
+  } catch (error: any) {
+    console.error("❌ Firebase init error:", error.message);
+  }
+}
+
+// ✅ CORS (Vercel-friendly)
 const corsOptions = {
-    origin: [
-        "https://schoolprep-fe.vercel.app",
-        "http://localhost:3000", // optional for local dev
-    ],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
+  origin: [
+    "https://schoolprep-fe.vercel.app",
+    "http://localhost:3000",
+  ],
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
 };
 
 const server = express();
-server.use(cors(corsOptions));
-server.options("*", cors(corsOptions)); // 👈 important for preflight
 
-server.use(
-    express.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 })
-);
+server.use(cors(corsOptions));
+server.options("*", cors(corsOptions));
+
+// Body parsing
+server.use(express.urlencoded({ limit: "50mb", extended: true }));
 server.use(express.json({ limit: "50mb" }));
+
+// EJS setup
 server.engine("html", ejs.renderFile);
 server.set("view engine", "ejs");
+
+// Health route for Vercel testing
+server.get("/api/health", (req, res) => {
+  res.json({ status: "ok", message: "Backend running 🚀" });
+});
+
+// Routes
 server.use("/api", router);
 
+// Swagger
 setupSwagger(server);
 
 export default server;
