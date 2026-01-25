@@ -7,7 +7,7 @@ import mongoose from "mongoose";
 import * as admin from "firebase-admin";
 import { fbServiceAccount } from "./firebase-config";
 import setupSwagger from "../swagger";
-
+import '../server/socket/index'
 // Fix BigInt JSON issue
 declare global {
   interface BigInt {
