@@ -5,7 +5,7 @@ import {
     sendResponse,
 } from "admin/helpers";
 import { RESPONSE_TYPE, ERROR_MESSAGE, SUCCESS_MESSAGE } from "admin/constants";
-import { validateCaptcha } from "helpers";
+import { validateCaptcha } from "../../../helpers";
 
 export default class ContactController {
     static async addContact(req: Request, res: Response, next: NextFunction) {

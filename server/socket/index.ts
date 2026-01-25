@@ -1,8 +1,8 @@
 import { Server } from "socket.io";
 import http from "http";
-import app from "index";
+import app from "../index";
 import TestService from "admin/controllers/Test/service";
-import { Test } from "database/schema/Test";
+import { Test } from "server/database/schema/Test";
 import mongoose from "mongoose";
 const server = http.createServer(app);
 const io = new Server(server, {

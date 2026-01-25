@@ -1,4 +1,5 @@
-import { CONFIG } from "config/environment";
+
+import { CONFIG } from "config";
 import SibApiV3Sdk from "sib-api-v3-sdk";
 
 export enum TemplateId {

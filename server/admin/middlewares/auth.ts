@@ -3,7 +3,7 @@ import * as jwt from "jsonwebtoken";
 import { sendResponse } from "admin/helpers";
 import { ERROR_MESSAGE, RESPONSE_TYPE } from "admin/constants";
 import { CONFIG } from "../../config";
-import { Role } from "database/schema";
+import { Role } from "server/database/schema";
 
 interface IActionPermissions {
     create: boolean;

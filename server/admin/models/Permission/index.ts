@@ -1,4 +1,4 @@
-import { Permission as PermissionModel } from "database/schema"; // Ensure you import the correct Mongoose model
+import { Permission as PermissionModel } from "server/database/schema"; // Ensure you import the correct Mongoose model
 import { TPermission } from "common/types/permission"; // Import the correct type for permissions
 
 export class Permission {

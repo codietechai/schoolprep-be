@@ -5,7 +5,7 @@ import { sendResponse } from "admin/helpers";
 import { RESPONSE_TYPE, SUCCESS_MESSAGE, ERROR_MESSAGE } from "admin/constants";
 import { get, isEmpty } from "lodash";
 import DashboardService from "./service";
-import { Role } from "database/schema";
+import { Role } from "server/database/schema";
 
 /**
  * Course Controller

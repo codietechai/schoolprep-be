@@ -1,4 +1,4 @@
-import { Course as CourseModel } from 'database/schema'; // Ensure the path to your Course model is correct (Mongoose model)
+import { Course as CourseModel } from "server/database/schema"; // Ensure the path to your Course model is correct (Mongoose model)
 import { TListFilters, TAddCourse, TEditCourse } from 'admin/controllers/courses/types'; // Import the correct types for course operations
 
 export class Course {

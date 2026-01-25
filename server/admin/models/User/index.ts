@@ -1,6 +1,6 @@
 const { Op } = require("sequelize");
 import { TUser, TUsersList } from "common/types/user/user.type";
-import { User as EndUser } from "database/schema";
+import { User as EndUser } from "server/database/schema";
 
 export class User {
     constructor() { }

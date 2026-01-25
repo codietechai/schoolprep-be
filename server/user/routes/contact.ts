@@ -1,8 +1,9 @@
 import * as express from "express";
-import ContactController from "user/controllers/contact/controller";
+
 import {
     validateContactBody,
-} from "user/controllers/contact/validation";
+} from "../controllers/contact/validation";
+import ContactController from "../controllers/contact/controller";
 
 const router = express.Router();
 

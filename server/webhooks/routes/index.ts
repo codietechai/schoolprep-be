@@ -1,6 +1,6 @@
 import * as express from "express";
 import stripeRouter from "./stripe";
-import PaymentsController from "user/controllers/payments/controller";
+import PaymentsController from "server/user/controllers/payments/controller";
 
 const router = express.Router();
 

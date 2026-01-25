@@ -5,7 +5,7 @@ import router from "./routes";
 import sgMail from "@sendgrid/mail";
 const mongoose = require('mongoose');
 import * as admin from "firebase-admin";
-import { fbServiceAccount } from "firebase-config";
+import { fbServiceAccount } from "./firebase-config";
 const setupSwagger = require('../swagger');
 
 declare global {

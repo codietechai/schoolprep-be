@@ -1,4 +1,4 @@
-import { Subject as SubjectModel } from 'database/schema';  // Ensure you have your Mongoose schema for Subject
+import { Subject as SubjectModel } from "server/database/schema";  // Ensure you have your Mongoose schema for Subject
 import { TListFilters, TAddSubject, TEditSubject } from 'admin/controllers/subjects/types';  // Types for your subject operations
 
 export class Subjects {

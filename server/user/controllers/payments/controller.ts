@@ -4,8 +4,8 @@ import { sendResponse } from "admin/helpers";
 import { RESPONSE_TYPE, ERROR_MESSAGE, SUCCESS_MESSAGE } from "admin/constants";
 import Stripe from "stripe";
 import { CONFIG } from "config";
-import { UserSubscription } from "database/schema/user-subscriptions";
-import { User } from "database/schema";
+import { UserSubscription } from "server/database/schema/user-subscriptions";
+import { User } from "server/database/schema";
 import mongoose from "mongoose";
 
 const stripe = new Stripe(CONFIG.STRIPE_SECRET_KEY, {

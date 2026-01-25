@@ -5,11 +5,11 @@ import {
     submitTestType,
     TAddTest,
 } from "admin/controllers/Test/types";
-import { Course, Question, User } from "database/schema";
-import { Test } from "database/schema/Test";
-import { TestActivity } from "database/schema/test-activity";
+import { Course, Question, User } from "server/database/schema";
+import { Test } from "server/database/schema/Test";
+import { TestActivity } from "server/database/schema/test-activity";
 import mongoose from "mongoose";
-import { Question as QuestionModel } from "database/schema";
+import { Question as QuestionModel } from "server/database/schema";
 
 export class TestModal {
     public async getOngoingTestId(user_id: string) {

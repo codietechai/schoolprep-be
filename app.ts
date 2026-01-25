@@ -1,8 +1,8 @@
 import dotenv from "dotenv";
 import dotenvExpand from "dotenv-expand";
 // import server from "./server";
-import { CONFIG } from "config";
-import { server } from "socket";
+import { CONFIG } from "./server/config";
+import { server } from "./server/socket";
 
 const env = dotenv.config({ path: `${__dirname}/.env` });
 dotenvExpand.expand(env);

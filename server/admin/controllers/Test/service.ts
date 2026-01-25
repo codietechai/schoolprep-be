@@ -6,7 +6,6 @@ import {
     submitTestType,
     TAddTest,
 } from "./types";
-import { Test } from "database/schema/Test";
 
 export default class TestService {
     static async getOngoingTestId(user_id: string) {

@@ -1,10 +1,10 @@
-import { Question as QuestionModel } from "database/schema";
+import { Question as QuestionModel } from "server/database/schema";
 import {
     TListFilters,
     TAddQuestion,
     TEditQuestion,
 } from "admin/controllers/questions/types";
-import { Topic as TopicModel } from "database/schema";
+import { Topic as TopicModel } from "server/database/schema";
 export class Question {
     constructor() {}
 

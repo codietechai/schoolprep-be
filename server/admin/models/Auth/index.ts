@@ -8,7 +8,7 @@ import {
     TResetPassword
 } from "admin/controllers/auth/auth.types";
 import { TUser } from "common/types/user/user.type";
-import { User as EndUser } from "database/schema";
+import { User as EndUser } from "server/database/schema";
 
 export class Auth {
     constructor() { }

@@ -1,60 +1,18 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
-    "inlineSources": true,
     "outDir": "dist",
-    "allowJs": true,
-    "target": "ES6",
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
+    "rootDir": ".",
+    "module": "NodeNext",
+    "target": "ES2020",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
-    "lib": [
-      "es2019",
-      "dom"
-    ],
-    "baseUrl": "server",
+    "baseUrl": ".",
     "paths": {
-      "@constants": [
-        "./constants"
-      ],
-      "config/*": [
-        "./config/*"
-      ],
-      "contracts/*": [
-        "./contracts/*"
-      ],
-      "controllers/*": [
-        "./controllers/*"
-      ],
-      "database/*": [
-        "./database/*"
-      ],
-      "helpers/*": [
-        "./helpers/*"
-      ],
-      "interfaces/*": [
-        "./interfaces/*"
-      ],
-      "middlewares/*": [
-        "./middlewares/*"
-      ],
-      "models/*": [
-        "./models/*"
-      ],
-      "routes/*": [
-        "./routes/*"
-      ],
-      "services/*": [
-        "./services/*"
-      ]
+      "admin/*": ["server/admin/*"],
+      "common/*": ["server/common/*"],
+      "config": ["server/config/index"],
+      "constants/*": ["server/constants/*"],
+      "helpers/*": ["server/helpers/*"]
     }
-  },
-  "downlevelIteration": true,
-  "include": [
-    "./server/**/*",
-    "./app.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  }
 }

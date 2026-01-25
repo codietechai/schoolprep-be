@@ -1,8 +1,8 @@
 import * as express from "express";
-import PaymentsController from "user/controllers/payments/controller";
+import PaymentsController from "../controllers/payments/controller";
 import {
     validateCreateCheckoutSessionBody,
-} from "user/controllers/payments/validation";
+} from "..//controllers/payments/validation";
 
 const router = express.Router();
 

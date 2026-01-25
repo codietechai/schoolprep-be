@@ -2,7 +2,7 @@ import {
     Topic as TopicModel,
     Subject as SubjectModel,
     Course as CourseModel,
-} from "database/schema";
+} from "server/database/schema";
 import {
     TListFilters,
     TAddTopic,

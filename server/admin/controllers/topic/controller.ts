@@ -3,7 +3,7 @@ import { get, isEmpty } from "lodash";
 import TopicService from "./service";
 import { sendResponse } from "admin/helpers";
 import { RESPONSE_TYPE, SUCCESS_MESSAGE, ERROR_MESSAGE } from "admin/constants";
-import { Course, Question, Topic } from "database/schema";
+import { Course, Question, Topic } from "server/database/schema";
 
 export default class TopicController {
     static async addTopic(req: Request, res: Response, next: NextFunction) {

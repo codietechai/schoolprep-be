@@ -3,9 +3,9 @@ import { get } from "lodash";
 import { sendResponse } from "admin/helpers";
 import { RESPONSE_TYPE, SUCCESS_MESSAGE, ERROR_MESSAGE } from "admin/constants";
 import TestService from "./service";
-import { Course, Subject, Topic, User } from "database/schema";
 import mongoose from "mongoose";
-import { Test } from "database/schema/Test";
+import { Course, Topic, User } from "server/database/schema";
+import { Test } from "server/database/schema/Test";
 
 export default class TestController {
     static async getOngoingTestId(req: Request, res: Response) {

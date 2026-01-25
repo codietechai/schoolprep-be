@@ -1,4 +1,4 @@
-import { Contact as ContactModel } from "database/schema";
+import { Contact as ContactModel } from "server/database/schema";
 import { TContact } from "common/types/contact";
 import { ObjectId } from "mongoose";
 

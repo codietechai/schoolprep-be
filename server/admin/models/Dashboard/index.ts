@@ -1,5 +1,5 @@
-import { Course, Question, Role, User } from "database/schema";
-import { Test } from "database/schema/Test";
+import { Course, Question, Role, User } from "server/database/schema";
+import { Test } from "server/database/schema/Test";
 import { lookup } from "dns";
 import mongoose from "mongoose";
 

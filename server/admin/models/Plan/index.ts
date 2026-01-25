@@ -1,4 +1,4 @@
-import { Plan as PlanModel } from 'database/schema';
+import { Plan as PlanModel } from "server/database/schema";
 import { TListFilters, TAddPlan, TEditPlan } from 'admin/controllers/plans/types';
 
 export class Plan {

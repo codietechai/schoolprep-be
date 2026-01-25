@@ -1,4 +1,4 @@
-import { Coupon as CouponModel } from "database/schema"; // Path to your Coupon model (ensure it's a Mongoose model)
+import { Coupon as CouponModel } from "server/database/schema"; // Path to your Coupon model (ensure it's a Mongoose model)
 import { TListFilters, TAddCoupon, TEditCoupon } from "admin/controllers/coupons/types"; // Import correct types
 
 export class Coupon {

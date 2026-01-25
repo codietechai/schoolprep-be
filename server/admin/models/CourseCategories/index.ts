@@ -1,4 +1,4 @@
-import { CourseCategory as CourseCategoryModel } from 'database/schema'; // Path to your CourseCategory model (ensure it's a Mongoose model)
+import { CourseCategory as CourseCategoryModel } from "server/database/schema"; // Path to your CourseCategory model (ensure it's a Mongoose model)
 import { TListFilters, TAddCategory, TEditCategory } from 'admin/controllers/course-categories/types'; // Import your types for category operations
 
 export class CourseCategory {

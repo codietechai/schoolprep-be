@@ -3,19 +3,13 @@ import { get, isEmpty } from "lodash";
 import * as bcrypt from "bcrypt";
 import * as jwt from "jsonwebtoken";
 import AuthService from "./auth.service";
-import {
-    sendResponse,
-    createAccessToken,
-    createRefreshToken,
-    createUserResponse,
-    createPassword,
-} from "admin/helpers";
-import { RESPONSE_TYPE, ERROR_MESSAGE, SUCCESS_MESSAGE } from "admin/constants";
-import { generateOtp } from "admin/helpers";
-import { sendForgotPasswordEmail } from "helpers";
+
+import { createAccessToken, createPassword, createRefreshToken, createUserResponse, generateOtp, sendResponse } from "../../helpers";
+import { ERROR_MESSAGE, RESPONSE_TYPE, SUCCESS_MESSAGE } from "../../constants";
+import { sendForgotPasswordEmail } from "../../../helpers";
+import { Role } from "../../../database/schema";
 import UserService from "../users/user.service";
-import { CONFIG } from "config/environment";
-import { Role } from "database/schema";
+import { CONFIG } from "../../../config";
 
 export default class AuthController {
     static async login(req: Request, res: Response, next: NextFunction) {

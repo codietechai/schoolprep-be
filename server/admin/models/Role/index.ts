@@ -1,4 +1,4 @@
-import { Role as RoleModel } from "database/schema"; // Ensure you import the correct Mongoose model
+import { Role as RoleModel } from "server/database/schema"; // Ensure you import the correct Mongoose model
 import { TRole } from "common/types/role"; // Import the correct type for roles
 import { ObjectId } from "mongoose"; // Import ObjectId from Mongoose
 import { TListFilters } from 'admin/controllers/subjects/types';
