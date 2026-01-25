@@ -48,19 +48,19 @@ try {
 }
 
 const corsOptions = {
-    origin: (origin, callback) => {
-        callback(null, true);
-        // if (whitelist.indexOf(origin) !== -1 || origin === undefined) {
-        //     callback(null, true);
-        // } else {
-        //     callback(new Error("UNAUTHORIZED!"));
-        // }
-    },
+    origin: [
+        "https://schoolprep-fe.vercel.app",
+        "http://localhost:3000", // optional for local dev
+    ],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
 };
 
 const server = express();
 server.use(cors(corsOptions));
+server.options("*", cors(corsOptions)); // 👈 important for preflight
+
 server.use(
     express.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 })
 );
